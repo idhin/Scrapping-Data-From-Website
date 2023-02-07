@@ -1,6 +1,7 @@
 from dataclasses import replace
 from bs4 import BeautifulSoup
 import requests
+import sys
 
 # Contoh kita ambil informasi coin crypto baru di coinmarketcap.com
 
@@ -17,6 +18,22 @@ for link in soup.find_all('a'):
         url_baru.append(url)
 # print(state_links)
 
+f = open("test.txt", "a")
 
 for i in url_baru:
-    print(i.replace("/currencies/", "https://coinmarketcap.com/currencies/"))
+    if i.find("bitcoin") != -1:
+        pass
+    elif i.find("axie-infinity") != -1:
+        pass
+    elif i.find("axie-infinity") != -1:
+        pass
+    elif i.find("smooth-love-potion") != -1:
+        pass
+    elif i.find("ether") != -1:
+        pass
+    elif i.find("soup") != -1:
+        pass
+    else:
+        print(i.replace("/currencies/",
+              "https://coinmarketcap.com/currencies/"), file=f)
+f.close()
