@@ -1,6 +1,8 @@
 from bs4 import BeautifulSoup
 import requests
 
+# Contoh kita ambil informasi coin crypto baru di coinmarketcap.com
+
 r = requests.get('https://coinmarketcap.com/new/')
 base_url = 'https://coinmarketcap.com'
 url_baru = []
