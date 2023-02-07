@@ -1,3 +1,4 @@
+from dataclasses import replace
 from bs4 import BeautifulSoup
 import requests
 
@@ -18,4 +19,4 @@ for link in soup.find_all('a'):
 
 
 for i in url_baru:
-    print(i)
+    print(i.replace("/currencies/", "https://coinmarketcap.com/currencies/"))
