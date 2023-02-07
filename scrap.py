@@ -3,17 +3,15 @@ from bs4 import BeautifulSoup
 import requests
 import sys
 
-# Contoh kita ambil informasi coin crypto baru di coinmarketcap.com
 
-r = requests.get('https://coinmarketcap.com/new/')
-base_url = 'https://coinmarketcap.com'
-url_baru = []
+def prosesAmbilData(inputUrl):
+    r = requests.get(inputUrl)
 
-soup = BeautifulSoup(r.text)
-# print(soup.title.string)
+    base_url = inputUrl
+    url_baru = []
 
+    soup = BeautifulSoup(r.text)
 
-def prosesAmbilData():
     for link in soup.find_all('a'):
         url = link.get('href')
         if url and '/currencies/' in url and '/climate/united-states/us' not in url:
@@ -42,7 +40,8 @@ def prosesAmbilData():
 
 
 def main():
-    prosesAmbilData()
+    inputUrl = input("Masukkan URL : ")
+    prosesAmbilData(inputUrl)
 
 
 if __name__ == "__main__":
